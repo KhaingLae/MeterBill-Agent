@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+	http://www.directwebremoting.org/schema/spring-dwr 
+	http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+
+	
+	<bean name="/Welcome" class="action.WelcomeAction">
+	</bean>
+	
+	<!-- <bean name="/SaveFile" class="action.SaveFileAction">
+	<property name="mySaveFileService" ref="idSaveFileService"></property>
+	</bean> 
+	 -->
+	 <bean name="/getEvaluation" class="action.EvaluationAction">
+	</bean>
+	 <bean name="/ChangePassword" class="action.ChangePasswordAction">
+	<property name="myLoginService" ref="idLoginService"></property>
+	</bean> 
+	
+	<bean name="/Contact" class="action.ContactAction">
+	<property name="myLoginService" ref="idLoginService"></property>
+	</bean> 
+	
+	 <bean name="/BillPayment" class="action.BillPaymentAction">
+	<property name="myCheckBalanceService" ref="idCheckBalanceService"></property>
+	</bean> 
+	
+	 <bean name="/ViewBalance" class="action.ViewBalanceAction">
+	<property name="myCheckBalanceService" ref="idCheckBalanceService"></property>
+	</bean> 
+	
+	<bean name="/BankBalance" class="action.BankBalanceAction">
+	<property name="myCheckBalanceService" ref="idCheckBalanceService"></property>
+	</bean> 
+	
+	<bean name="/ViewUsers" class="action.ViewUsersAction">
+	<property name="myCheckBalanceService" ref="idCheckBalanceService"></property>
+	</bean> 
+	
+	<bean name="/CheckBalance" class="action.CheckBalanceAction">
+	<property name="myCheckBalanceService" ref="idCheckBalanceService"></property>
+	</bean>
+	<bean id="idCheckBalanceService" class="service.CheckBalanceService"></bean>
+	
+	<bean name="/CheckIncome" class="action.CheckIncomeAction">
+	<property name="myCheckBalanceService" ref="idCheckBalanceService"></property>
+	</bean>
+	
+	
+	
+	<bean name="/SignUp" class="action.SignupAction">
+	<property name="mySignUpService" ref="idSignUpService"></property>
+	</bean>
+	<bean id="idSignUpService" class="service.SignUpService">
+		<dwr:remote javascript="AjaxSearchTown">
+			<dwr:include method="getByTown" />
+		</dwr:remote>
+		<dwr:remote javascript="AjaxSearchBlock">
+			<dwr:include method="getByBlock" />
+		</dwr:remote>
+	</bean>
+
+	<bean name="/Login" class="action.LoginAction">
+	<property name="myLoginService" ref="idLoginService"></property>
+	</bean>
+	<bean id="idLoginService" class="service.LoginService"></bean>
+	
+	<bean name="/PayBill" class="action.PayBillAction">
+	</bean>
+	
+	
+	
+	<bean name="/sendMonthlyBill" class="action.SendFileAction">
+	<property name="mySendFileService" ref="idSendFileService"></property>
+	</bean>
+	<bean id="idSendFileService" class="service.SendFileService"></bean>
+	<bean name="/sendReport" class="action.SendReportAction">
+	<property name="mySendFileService" ref="idSendFileService"></property>
+	</bean>
+	
+	<bean name="/Logout" class="action.LogoutAction">
+	<property name="myLoginService" ref="idLoginService"></property>
+	</bean>
+	
+</beans>
+
+
+
+	

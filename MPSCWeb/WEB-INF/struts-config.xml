@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+
+
+
+	<form-beans>
+		
+	<form-bean name="userLoginForm" type="form.LoginForm"></form-bean>
+	<form-bean name="billForm" type="form.BillForm"></form-bean>
+	<form-bean name="evaluationForm" type="form.EvaluationForm"></form-bean>
+	</form-beans>
+
+
+	<global-forwards>
+
+		<forward name="welcome" path="/Login.do" />
+	</global-forwards>
+
+
+
+
+	<action-mappings>
+
+
+		<action path="/Welcome"  forward="/jsp/guesthome.jsp" />
+		
+	<!-- 	<action path="/SaveFile" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/adminhome.jsp" />				
+		</action> -->
+		<action path="/getEvaluation" name="evaluationForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/evaluation.jsp" />	
+			<forward name="evaluationsuccess" path="/jsp/evaluation.jsp" />				
+		</action>
+		
+		
+		<action path="/ChangePassword" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/editpass.jsp" />	
+			<forward name="nosuccess" path="/jsp/editpass.jsp" />				
+		</action>
+		
+		<action path="/Contact" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/contact.jsp" />	
+			<forward name="nosuccess" path="/jsp/contact.jsp" />				
+		</action>
+		
+		<action path="/BillPayment" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/billpayment.jsp" />				
+		</action>
+		
+		<action path="/CheckIncome" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/bank.jsp" />				
+		</action>
+		
+		<action path="/CheckBalance" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/checkbalance.jsp" />				
+		</action>
+		
+		<action path="/BankBalance" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/bankbalance.jsp" />				
+		</action>
+		
+		<action path="/ViewUsers" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/enduser.jsp" />				
+		</action>
+		
+		
+		<action path="/SignUp" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="registersuccess" path="/jsp/guesthome.jsp" />
+				
+		</action>
+		
+		<action path="/Login" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="loginsuccess" path="/jsp/userhome.jsp" />
+			<forward name="adminsuccess" path="/jsp/adminhome.jsp" />	
+			<forward name="officesuccess" path="/jsp/officehome.jsp" />	
+			<forward name="banksuccess" path="/jsp/bankhome.jsp" />	
+			<forward name="nosuccess" path="/Welcome.do" />
+			<forward name="success" path="/jsp/guesthome.jsp" />	
+		</action>
+		
+		<action path="/PayBill" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/userhome.jsp" />
+			<forward name="nosuccess" path="/jsp/userhome.jsp" />
+		</action>
+
+		<action path="/sendMonthlyBill" name="billForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/sendmonthlybill.jsp" />
+			<forward name="sendsuccess" path="/jsp/officehome.jsp" />				
+		</action>
+		
+		<action path="/sendReport" name="billForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/checkbalance.jsp" />
+			<forward name="sendsuccess" path="/jsp/adminhome.jsp" />				
+		</action>
+		
+		<action path="/ViewBalance" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/viewbalance.jsp" />
+			<forward name="viewsuccess" path="/jsp/userhome.jsp" />				
+		</action>
+
+		<!-- <action path="/MeterOffice" name="billForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/meteroffice.jsp" />
+			<forward name="sendsuccess" path="/jsp/adminhome.jsp" />				
+		</action> -->
+
+		<!-- <action path="/EndUser" name="billForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/enduser.jsp" />
+			<forward name="sendsuccess" path="/jsp/adminhome.jsp" />				
+		</action> -->
+		
+		<action path="/Bank" name="billForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/jsp/bank.jsp" />
+			<forward name="sendsuccess" path="/jsp/adminhome.jsp" />				
+		</action>
+		
+		<!--  for Log out -->
+		<action path="/Logout" name="userLoginForm"
+			type="org.springframework.web.struts.DelegatingActionProxy" validate="false"
+			scope="session">
+			<forward name="success" path="/Login.do" />
+		</action>
+		
+		
+
+	</action-mappings>
+
+
+	<message-resources parameter="MessageResources" />
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames"
+			value="/org/apache/struts/validator/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+	<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn"></plug-in>
+
+</struts-config>
+

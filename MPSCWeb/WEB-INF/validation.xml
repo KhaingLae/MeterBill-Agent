@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE form-validation PUBLIC
+     "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+     "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+<form-validation>
+
+
+	<global>
+
+
+	</global>
+
+	<!-- An example form -->
+
+	<formset>
+		<form name="bookForm">
+			<field property="title" depends="required,mask">
+				<arg key="title" resource="false" />			
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-zA-Z.* ]*]*$</var-value>
+				</var>
+			</field>
+			<field property="upPdf" depends="required">
+				<arg key="Pdf File Path" resource="false" />
+			</field>
+			<field property="year" depends="required,integer">
+				<arg key="Publication year" resource="false" />
+			</field>
+			
+			<field property="edition" depends="mask">
+				<arg key="edition" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-z]*]*$</var-value>
+				</var>
+			</field>
+			<field property="fauthor" depends="required,mask">
+				<arg key="first author" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-zA-Z.* ]*]*$</var-value>
+				</var>
+			</field>
+			<field property="sauthor" depends="mask">
+				<arg key="second author" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-zA-Z.* ]*]*$</var-value>
+				</var>
+			</field>
+			<field property="tauthor" depends="mask">
+				<arg key="third author" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-zA-Z.* ]*]*$</var-value>
+				</var>
+			</field>
+
+		</form>
+
+
+
+		<form name="userRegisterForm">
+
+
+
+			<field property="password" depends="required,mask">
+				<arg key="Password" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z]*$</var-value>
+				</var>
+			</field>
+			<field property="confpass" depends="required">
+				<arg key="confpass" resource="false" />
+			</field>
+
+
+			<field property="name" depends="required,mask">
+				<arg key="name" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-zA-Z ]*]*$</var-value>
+				</var>
+
+			</field>
+
+
+
+			<field property="address" depends="required">
+				<arg key="Address" resource="false" />
+			</field>
+
+			<field property="gender" depends="required">
+				<arg key="Gender" resource="false" />
+			</field>
+
+			<field property="nrc" depends="required,mask">
+				<arg position="0" key="NRC" resource="false" />
+				<msg name="mask" key="Wrong Format!Type eg 9/PaOuLa(N)336483"
+					resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>
+						^[1-9][0-4]?/[a-zA-Z]{6,9}\([n|N|f|F]\)[0-9]{6}$
+				</var-value>
+				</var>
+			</field>
+
+
+
+		</form>
+		<form name="userUpdateForm">
+			<field property="password" depends="mask">
+				<arg key="Password" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z]*$</var-value>
+				</var>
+			</field>
+
+		</form>
+
+
+
+
+
+
+		<form name="bookUpdateForm">
+			<field property="title" depends="required">
+				<arg key="title" resource="false" />			
+				
+			</field>
+
+			<field property="edition" depends="required,mask">
+				<arg key="edition" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-z]*]*$</var-value>
+				</var>
+			</field>
+			<field property="fauthor" depends="required,mask">
+				<arg key="first author" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-zA-Z.* ]*]*$</var-value>
+				</var>
+			</field>
+			<field property="sauthor" depends="mask">
+				<arg key="second author" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-zA-Z.* ]*]*$</var-value>
+				</var>
+			</field>
+			<field property="tauthor" depends="mask">
+				<arg key="third author" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-zA-Z.* ]*]*$</var-value>
+				</var>
+			</field>
+			<field property="year" depends="required,mask">
+				<arg key="year" resource="false" />		
+				<var>
+					<var-name>mask</var-name>
+					<var-value>[0-9]{4}</var-value>
+				</var>		
+			</field>
+
+		</form>
+
+
+		<form name="categoryAddForm">
+			<field property="category" depends="required,mask">
+				<arg key="category" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[[a-zA-Z.* ]*]*$</var-value>
+				</var>
+			</field>
+
+
+		</form>
+
+
+
+
+
+
+
+	</formset>
+
+</form-validation>
